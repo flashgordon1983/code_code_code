@@ -1,0 +1,21 @@
+
+
+cd C:\GitHub_Repos\code_code_code\Advent_3
+down = 1;
+right = 3;
+start = 1;
+
+input = char(importdata('example.txt'));
+input_recoded = input == '#';
+
+input_long = repmat(input_recoded,1,5);
+
+width = size(input_long,2);
+
+position = start + down*width + right;
+
+for steps = 1:((size(input_long,1))-start)/start
+    tree_counter = tree_counter + input_long(position);
+    
+    position 
+    
