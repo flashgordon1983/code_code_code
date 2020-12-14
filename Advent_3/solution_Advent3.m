@@ -10,10 +10,7 @@ right = [1 3 5 7 1];
 
 for slopes = 1:5
     
-
 start = 1;
-
-
 
 how_many_steps = ((size(input,1))-start)/down(slopes);
 
@@ -26,17 +23,23 @@ T_input_long = input_long';
 
 width = size(T_input_long,1);
 
-position = start + down(slopes)*width + right(slopes);
-tree_counter = 0;
-    for steps = 1:how_many_steps
+%new way without loop
 
-        tree_counter = tree_counter + T_input_long(position);
-    %     [row(steps),col(steps)] = ind2sub([size(T_input_long,1) size(T_input_long,2)],position);
-        position = position + down(slopes)*width + right(slopes);  
+positions = start:down(slopes)*width + right(slopes):(down(slopes)*width + right(slopes))*how_many_steps;
+tree_counter2 = sum(T_input_long(positions(2:end)));
 
-
-    end
-    slope_trees(slopes) = tree_counter;
+%old way with loop
+% position = start + down(slopes)*width + right(slopes);
+% tree_counter = 0;
+%     for steps = 1:how_many_steps
+% 
+%         tree_counter = tree_counter + T_input_long(position);
+%     %     [row(steps),col(steps)] = ind2sub([size(T_input_long,1) size(T_input_long,2)],position);
+%         position = position + down(slopes)*width + right(slopes);  
+% 
+% 
+%     end
+slope_trees(slopes) = tree_counter2;
 
 end
 
