@@ -3,6 +3,10 @@ cd C:\GitHub_Repos\code_code_code\Advent_6_1
 
 
 fid = fopen('puzzle_input.txt');
+
+% fmt = repmat('%s',1,1);
+% M = textscan(fid,fmt,'Delimiter','\n');
+
 line = 1;
 input = {};
 abc = 'abcdefghijklmnopqrstuvwxyz';
