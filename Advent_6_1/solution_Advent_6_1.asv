@@ -1,0 +1,23 @@
+cd C:\GitHub_Repos\code_code_code\Advent_6_1
+
+
+
+fid = fopen('example.txt');
+line = 1;
+input = [];
+while 1 == 1
+    T_input = fgets(fid);
+    T_input = regexprep(T_input,'\n','');
+    if T_input == -1
+       break 
+    end
+    input = [input T_input];
+    if size(T_input,2) == 2
+    unique(input);
+    input = [];
+    end
+end
+
+fclose(fid);
+
+answer = sum(input);
